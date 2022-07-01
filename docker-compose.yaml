@@ -1,0 +1,10 @@
+version: '3'
+services:
+  consule:
+    image: consul:latest
+    container_name: goconsul_consul
+    ports:
+      - "8500:8500"
+      - "8600:8600/tcp"
+      - "8600:8600/udp"
+    command: "agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0"
